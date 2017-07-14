@@ -26,7 +26,8 @@ uploadForm.addEventListener('submit', (e) => {
 selectForm.addEventListener('submit', (e) => {
   e.preventDefault();
   user.getIdToken().then((auth_token) => {
-    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId: e.target.value})}).then(() => {
+    var videoId = e.target.querySelector("select").value;
+    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId})}).then(() => {
       feed.listNew();
     });
   });  
