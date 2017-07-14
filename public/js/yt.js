@@ -8,6 +8,7 @@ var SCOPES = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com
 
 var uploadButton = document.querySelector('button.upload');
 var uploadForm = document.querySelector('.uploadForm');
+var progress = document.querySelector('#progress');
 
 uploadButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -18,7 +19,7 @@ uploadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   var uploadVideo = new UploadVideo();
   uploadVideo.ready(gapi.client.getToken().access_token);
-
+  progress.classList.remove('hidden')
 })
 
 function uploadVideoApi(videoId) {
@@ -48,7 +49,6 @@ function uploadVideo() {
   function updateSigninStatus(isLogged) {
     if(isLogged) {
       uploadForm.classList.remove("hidden");
-      uploadFormId.classList.remove("hidden");
     }
   }
   

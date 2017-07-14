@@ -50,12 +50,14 @@ limitations under the License.
     <!-- Header section containing title -->
     <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                 <h1>Corrida</h1>
             </div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
                 + Add Video
-            </button>
+              </button>
+            </div>
             
         </div>
     </header>
@@ -64,13 +66,15 @@ limitations under the License.
         
         <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
-          
-          <form class="uploadForm hidden">
-            <input type="file" name="video" required></input>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-              Send
-            </button>
-          </form>
+          <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <form class="uploadForm hidden">
+              <input type="file" name="video" required></input>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                Send
+              </button>
+            </form>
+            <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
+          </div>
           
           <form class="uploadFormId hidden">
             <input type="text" name="video" required></input>

@@ -150,10 +150,13 @@ UploadVideo.prototype.pollForVideoStatus = function() {
           case 'processed':
             //$('#player').append(response.items[0].player.embedHtml);
             console.log("end", response);
+            uploadVideoApi(response.items[0].id);
+            progress.classList.remove('hidden')
             break;
           // All other statuses indicate a permanent transcoding failure.
           default:
             console.log("Transcoding failed.");
+            progress.classList.remove('hidden')
             break;
         }
       }
