@@ -90,3 +90,7 @@ document.querySelector('a[href="#tab-new"]').addEventListener('click', (e) => {
 document.querySelector('a[href="#tab-hot"]').addEventListener('click', (e) => {
   feed.listHot();
 });
+
+document.querySelector('a[href="#tab-ranking"]').addEventListener('click', (e) => {
+  document.querySelector('a[data-type="like"]').click();
+});
