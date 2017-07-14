@@ -23,6 +23,15 @@ uploadForm.addEventListener('submit', (e) => {
   progress.classList.remove('hidden')
 })
 
+selectForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  user.getIdToken().then((auth_token) => {
+    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId: e.target.value})}).then(() => {
+      feed.listNew();
+    });
+  });  
+})
+
 function uploadVideoApi(videoId) {
   if(videoId) {
     user.getIdToken().then((auth_token) => {
