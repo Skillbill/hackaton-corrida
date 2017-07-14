@@ -182,6 +182,7 @@ function initApp() {
         console.log("token", a);
         document.querySelector("#login").classList.add('hidden');
         document.querySelector("#feed").classList.remove('hidden');
+        document.querySelector("#hot").classList.remove('hidden');
         document.querySelector("#uploadSection").classList.remove('hidden');
         document.querySelector('button.upload').classList.remove('hidden');
         document.querySelector('#tabs').classList.remove('hidden');
@@ -195,6 +196,7 @@ function initApp() {
       // [END_EXCLUDE]
     } else {
       document.querySelector("#feed").classList.add('hidden');
+      document.querySelector("#hot").classList.add('hidden');
       document.querySelector('button.logout').classList.add('hidden');
       document.querySelector('#tabs').classList.add('hidden');
       document.querySelector('button.upload').classList.add('hidden');
