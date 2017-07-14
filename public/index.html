@@ -181,7 +181,7 @@ limitations under the License.
                     document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
                     document.user = user;
                     user.getIdToken().then((a) => {
-                        console.log(a);
+                        console.log("token", a);
                     });
                     if (!emailVerified) {
                         document.getElementById('quickstart-verify-email').disabled = false;
@@ -226,6 +226,11 @@ limitations under the License.
     </header>
 
     <main class="mdl-layout__content mdl-color--grey-100">
+        
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored upload">
+          <i class="material-icons">add</i>
+        </button>
+
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
             <!-- Container for the demo -->
@@ -260,5 +265,7 @@ limitations under the License.
         </div>
     </main>
 </div>
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="/js/yt.js"></script>
 </body>
 </html>
