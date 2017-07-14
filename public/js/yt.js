@@ -4,7 +4,7 @@ var CLIENT_ID = '670742227434-uc7h98jd4fe571tfi2pjtuvv24spd058.apps.googleuserco
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"];
 // Authorization scopes required by the API. If using multiple scopes,
 // separated them with spaces.
-var SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
+var SCOPES = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.upload';
 
 var uploadButton = document.querySelector('button.upload');
 var uploadForm = document.querySelector('.uploadForm');
@@ -12,6 +12,13 @@ uploadButton.addEventListener('click', (e) => {
   e.preventDefault();
   uploadVideo();
 });
+
+uploadForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  var uploadVideo = new UploadVideo();
+  uploadVideo.ready(gapi.client.getToken().access_token);
+
+})
 
 function uploadVideo() {
 
@@ -31,9 +38,12 @@ function uploadVideo() {
   
   gapi.load('client:auth2', initClient);
   
-  function updateSigninStatus() {
-    uploadForm.classList.remove("hidden");
+  function updateSigninStatus(isLogged) {
+    if(isLogged) {
+      uploadForm.classList.remove("hidden");
+    }
   }
   
 }
+
 
