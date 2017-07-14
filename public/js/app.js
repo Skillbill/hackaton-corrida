@@ -13,7 +13,7 @@ function googleToggleSignIn() {
       // The signed-in user info.
       var user = result.user;
       // [START_EXCLUDE]
-      document.getElementById('quickstart-oauthtoken').textContent = token;
+      //document.getElementById('quickstart-oauthtoken').textContent = token;
       // [END_EXCLUDE]
     }).catch(function(error) {
       // Handle Errors here.
