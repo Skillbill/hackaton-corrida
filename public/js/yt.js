@@ -8,7 +8,6 @@ var SCOPES = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com
 
 var uploadButton = document.querySelector('button.upload');
 var uploadForm = document.querySelector('.uploadForm');
-var uploadFormId = document.querySelector('.uploadFormId');
 
 uploadButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -20,12 +19,6 @@ uploadForm.addEventListener('submit', (e) => {
   var uploadVideo = new UploadVideo();
   uploadVideo.ready(gapi.client.getToken().access_token);
 
-})
-
-uploadFormId.addEventListener('submit', (e) => {
-  e.preventDefault();
-  var videoId = e.target.querySelector('input').value;
-  uploadVideoApi(videoId);
 })
 
 function uploadVideoApi(videoId) {
