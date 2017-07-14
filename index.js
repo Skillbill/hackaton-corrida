@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static('public'));
 
-auth.init(`/`, app);
+auth.init(`/api`, app);
 app.use('/api', require('./routers/root'));
 
 app.listen(3000, function () {
