@@ -24,7 +24,9 @@ uploadForm.addEventListener('submit', (e) => {
 
 function uploadVideoApi(videoId) {
   if(videoId) {
-    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId})});
+    user.getIdToken().then((auth_token) => {
+      fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId})});
+    });
   }
 }
 
