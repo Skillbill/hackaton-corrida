@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
 
-router.get('/', function(req, res) {
+router.get('/date', function(req, res) {
   res.send({
     d: new Date(),
     oid : req.user.oid
