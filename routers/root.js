@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
+const moment = require('moment');
 const database = require('../lib/database');
 const pageSize = 10;
 
@@ -38,9 +39,64 @@ router.post('/upload', function(req, res) {
 });
 
 router.get('/list-new', function(req, res) {
-  res.status(200).send(paged(req.query.pageNumber, (video1, video2) => {
+  res.status(200).send(paged(req.query.pageNumber || 0, (video1, video2) => {
     return video1.uploadDate < video2.uploadDate;
   }));
+});
+
+router.get('/list-love', function(req, res) {
+  res.status(200).send(paged(req.query.pageNumber || 0, (video1, video2) => {
+    return video1.love < video2.love;
+  }));
+});
+
+router.get('/list-like', function(req, res) {
+  res.status(200).send(paged(req.query.pageNumber || 0, (video1, video2) => {
+    return video1.like < video2.like;
+  }));
+});
+
+router.get('/list-happy', function(req, res) {
+  res.status(200).send(paged(req.query.pageNumber || 0, (video1, video2) => {
+    return video1.happy < video2.happy;
+  }));
+});
+
+router.get('/list-dislike', function(req, res) {
+  res.status(200).send(paged(req.query.pageNumber || 0, (video1, video2) => {
+    return video1.dislike < video2.dislike;
+  }));
+});
+
+router.get('/list-hot', function(req, res) {
+  const timeRange = req.query.timeRange || 1;
+  const start = moment().subtract({ minutes: timeRange}).toDate();
+  const pageNumber = req.query.pageNumber || 0;
+
+  const votesByVideo =
+    database.getAllVotes()
+      .filter(vote => vote.voteDate > start)
+      .reduce((result, vote) => {
+        if(result[vote.videoId]) {
+          result[vote.videoId]++;
+        } else {
+          result[vote.videoId] = 1;
+        }
+        return result;
+      }, {});
+
+  const mostVotedVideos =
+    Object.keys(votesByVideo)
+    .reduce((result, videoId) => {
+      result.push({videoId, voteCount : votesByVideo.videoId});
+      return result;
+    }, [])
+    .sort((vbv1, vbv2) => vbv1.voteCount > vbv2.voteCount)
+    .slice(pageNumber*pageSize, (pageNumber+1)*pageSize)
+    .map(vbv => database.getVideo(vbv.videoId));
+
+  res.status(200).send(mostVotedVideos);
+
 });
 
 router.put('/vote', function(req, res) {
