@@ -31,7 +31,7 @@ router.post('/upload', function(req, res) {
 
 router.get('/list-new', function(req, res) {
   const pageNumber = req.query.pageNumber;
-  
+
   const page = database.getAllVideo().sort((video1, video2) => {
     return video1.uploadDate < video2.uploadDate;
   }).slice(pageNumber*pageSize, (pageNumber+1)*pageSize);

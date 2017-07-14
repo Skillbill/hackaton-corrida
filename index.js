@@ -1,7 +1,10 @@
 const express = require('express');
 const auth = require('./lib/auth');
+const database = require('./lib/database');
 const bodyParser = require('body-parser');
 const app = express();
+
+database.init();
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
