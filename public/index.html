@@ -54,37 +54,32 @@ limitations under the License.
             <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                 <h1>Corrida</h1>
             </div>
-            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
               <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
                 + Add Video
               </button>
             </div>
             
+            <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--9-col-desktop mdl-grid">
+
+              <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+                <form class="uploadForm hidden">
+                  <input type="file" name="video" required></input>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                    Send
+                  </button>
+                </form>
+              </div>
+              
+            </div>
+            
+            <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
         </div>
+        
     </header>
 
     <main class="mdl-layout__content mdl-color--grey-100">
         
-        <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-
-          <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-            <form class="uploadForm hidden">
-              <input type="file" name="video" required></input>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-                Send
-              </button>
-            </form>
-            <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
-          </div>
-          
-          <form class="uploadFormId hidden">
-            <input type="text" name="video" required></input>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
-              Send
-            </button>
-          </form>
-        </div>
-
         <div id="login" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
             <!-- Container for the demo -->
