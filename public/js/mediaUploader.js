@@ -152,11 +152,13 @@ UploadVideo.prototype.pollForVideoStatus = function() {
             console.log("end", response);
             uploadVideoApi(response.items[0].id);
             progress.classList.add('hidden')
+            alert('video uploaded correctly')
             break;
           // All other statuses indicate a permanent transcoding failure.
           default:
             console.log("Transcoding failed.");
             progress.classList.add('hidden')
+            alert('oops! there is a problem while uploading the video')
             break;
         }
       }

@@ -3,9 +3,33 @@
  */
 const feed = {
 
-  listNew : () => {
+  listNew: ()  => {
+    return feed.list('list-new');
+  },
+
+  listHot: ()  => {
+    return feed.list('list-hot');
+  },
+  
+  listHappy: ()  => {
+    return feed.list('list-happy');
+  },
+  
+  listLove: ()  => {
+    return feed.list('list-love');
+  },
+  
+  listDislike: ()  => {
+    return feed.list('list-dislike');
+  },
+  
+  listLike: ()  => {
+    return feed.list('list-like');
+  },
+
+  list: (type) => {
     user.getIdToken().then((auth_token) => {
-      fetch('/api/list-new', {
+      fetch('/api/' + type, {
         method: 'GET',
         headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}
       })
