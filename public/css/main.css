@@ -8,7 +8,7 @@
 
 .video-card {
   width: 600px;
-  height: 400px;
+  height: 460px;
   margin: 0 auto;
 }
 
@@ -24,10 +24,6 @@
 
 #progress {
   width: 100%;
-}
-
-.video-card {
-  height: 440px;
 }
 
 button.upload,
