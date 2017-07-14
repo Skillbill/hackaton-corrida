@@ -29,3 +29,14 @@
 .video-card {
   height: 440px;
 }
+
+button.upload {
+  margin-top: 25px;
+}
+  
+header {
+  background: url('/images/logo.png');
+  background-repeat: no-repeat;
+  background-size: 280px;
+
+}
