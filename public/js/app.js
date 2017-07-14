@@ -130,13 +130,15 @@ function initApp() {
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
       document.getElementById('quickstart-sign-in').textContent = 'Sign out';
       document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-      document.user = user;
+      window.user = user;
       user.getIdToken().then((a) => {
         auth_token = a;
         console.log("token", a);
         document.querySelector("#login").classList.add('hidden');
         document.querySelector("#feed").classList.remove('hidden');
         document.querySelector("#uploadSection").classList.remove('hidden');
+
+        feed.listNew();
       });
       if (!emailVerified) {
         document.getElementById('quickstart-verify-email').disabled = false;
