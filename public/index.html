@@ -25,7 +25,7 @@ limitations under the License.
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 
 
     <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
@@ -230,6 +230,13 @@ limitations under the License.
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored upload">
           <i class="material-icons">add</i>
         </button>
+        
+        <form class="uploadForm hidden">
+          <input type="file" name="video" required></input>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+            Send
+          </button>
+        </form>
 
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
@@ -266,6 +273,7 @@ limitations under the License.
     </main>
 </div>
 <script src="https://apis.google.com/js/api.js"></script>
+<script src="/js/mediaUploader.js"></script>
 <script src="/js/yt.js"></script>
 </body>
 </html>
