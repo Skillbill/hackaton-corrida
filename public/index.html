@@ -55,9 +55,12 @@ limitations under the License.
                 <h1></h1>
             </div>
             <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
+              <button class="hidden  mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
                 + Add Video
               </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent logout">
+                + Logout
+            </button>
             </div>
             
             <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-grid">
@@ -76,7 +79,7 @@ limitations under the License.
             <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
         </div>
         <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <div id="tabs" class="hidden mdl-layout__tab-bar mdl-js-ripple-effect">
             <a href="#tab-new" class="mdl-layout__tab is-active">New</a>
             <a href="#tab-hot" class="mdl-layout__tab">Hot</a>
             <a href="#tab-ranking" class="mdl-layout__tab">Ranking</a>
@@ -106,7 +109,7 @@ limitations under the License.
                     <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                     &nbsp;&nbsp;&nbsp;
                     <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-
+                    &nbsp;&nbsp;&nbsp;
                     <button class="mdl-button mdl-js-button mdl-button--raised" id="google-quickstart-sign-in">Sign in with Google</button>
 
                     <!-- Container where we'll display the user details -->
