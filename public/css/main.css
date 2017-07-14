@@ -30,7 +30,8 @@
   height: 440px;
 }
 
-button.upload {
+button.upload,
+button.logout {
   margin-top: 25px;
 }
   

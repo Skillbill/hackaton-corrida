@@ -13,7 +13,7 @@ function googleToggleSignIn() {
       // The signed-in user info.
       var user = result.user;
       // [START_EXCLUDE]
-      document.getElementById('quickstart-oauthtoken').textContent = token;
+      //document.getElementById('quickstart-oauthtoken').textContent = token;
       // [END_EXCLUDE]
     }).catch(function(error) {
       // Handle Errors here.
@@ -182,7 +182,11 @@ function initApp() {
         console.log("token", a);
         document.querySelector("#login").classList.add('hidden');
         document.querySelector("#feed").classList.remove('hidden');
+        document.querySelector("#hot").classList.remove('hidden');
         document.querySelector("#uploadSection").classList.remove('hidden');
+        document.querySelector('button.upload').classList.remove('hidden');
+        document.querySelector('#tabs').classList.remove('hidden');
+        document.querySelector('button.logout').classList.remove('hidden');
 
         feed.listNew();
       });
@@ -191,6 +195,11 @@ function initApp() {
       }
       // [END_EXCLUDE]
     } else {
+      document.querySelector("#feed").classList.add('hidden');
+      document.querySelector("#hot").classList.add('hidden');
+      document.querySelector('button.logout').classList.add('hidden');
+      document.querySelector('#tabs').classList.add('hidden');
+      document.querySelector('button.upload').classList.add('hidden');
       document.querySelector("#login").classList.remove('hidden');
       // User is signed out.
       // [START_EXCLUDE]
@@ -211,6 +220,13 @@ function initApp() {
   document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
   document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
   document.getElementById('google-quickstart-sign-in').addEventListener('click', googleToggleSignIn, false);
+
+  var logoutButton = document.querySelector('button.logout');
+
+  logoutButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleSignIn();
+  });
 }
 
 window.onload = function() {
