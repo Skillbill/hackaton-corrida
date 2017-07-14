@@ -151,7 +151,15 @@ UploadVideo.prototype.pollForVideoStatus = function() {
             //$('#player').append(response.items[0].player.embedHtml);
             console.log("end", response);
             uploadVideoApi(response.items[0].id);
-            progress.classList.add('hidden')
+            progress.classList.add('hidden');
+            uploadForm.classList.add('hidden');
+
+            document.querySelectorAll('a.mdl-layout__tab').forEach(el => el.classList.remove('is-active'));
+            document.querySelector('a[href="#tab-new"]').classList.add('is-active');
+            document.querySelectorAll('.mdl-layout__tab-panel').forEach(el => el.classList.remove('is-active'));
+            document.querySelector('#tab-new').classList.add('is-active');
+            feed.listNew();
+
             alert('video uploaded correctly')
             break;
           // All other statuses indicate a permanent transcoding failure.
