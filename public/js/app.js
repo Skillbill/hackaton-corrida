@@ -1,3 +1,49 @@
+function googleToggleSignIn() {
+  if (!firebase.auth().currentUser) {
+    // [START createprovider]
+    var provider = new firebase.auth.GoogleAuthProvider();
+    // [END createprovider]
+    // [START addscopes]
+    //provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    // [END addscopes]
+    // [START signin]
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // [START_EXCLUDE]
+      document.getElementById('quickstart-oauthtoken').textContent = token;
+      // [END_EXCLUDE]
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // [START_EXCLUDE]
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('You have already signed up with a different auth provider for that email.');
+        // If you are using multiple auth providers on your app you should handle linking
+        // the user's accounts here.
+      } else {
+        console.error(error);
+      }
+      // [END_EXCLUDE]
+    });
+    // [END signin]
+  } else {
+    // [START signout]
+    firebase.auth().signOut();
+    // [END signout]
+  }
+  // [START_EXCLUDE]
+  document.getElementById('quickstart-sign-in').disabled = true;
+  // [END_EXCLUDE]
+}
+
 function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
@@ -130,13 +176,15 @@ function initApp() {
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
       document.getElementById('quickstart-sign-in').textContent = 'Sign out';
       document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-      document.user = user;
+      window.user = user;
       user.getIdToken().then((a) => {
         auth_token = a;
         console.log("token", a);
         document.querySelector("#login").classList.add('hidden');
         document.querySelector("#feed").classList.remove('hidden');
         document.querySelector("#uploadSection").classList.remove('hidden');
+
+        feed.listNew();
       });
       if (!emailVerified) {
         document.getElementById('quickstart-verify-email').disabled = false;
@@ -162,6 +210,7 @@ function initApp() {
   document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
   document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
   document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+  document.getElementById('google-quickstart-sign-in').addEventListener('click', googleToggleSignIn, false);
 }
 
 window.onload = function() {

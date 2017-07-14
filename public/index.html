@@ -24,6 +24,7 @@ limitations under the License.
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
 
@@ -106,6 +107,8 @@ limitations under the License.
                     &nbsp;&nbsp;&nbsp;
                     <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
 
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="google-quickstart-sign-in">Sign in with Google</button>
+
                     <!-- Container where we'll display the user details -->
                     <div class="quickstart-user-details-container" style="display:none">
                         Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
@@ -119,34 +122,40 @@ limitations under the License.
         
         <div id="feed" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
 
-            <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--expand">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0FP_BmEvMxc" frameborder="0" allowfullscreen></iframe>
 
-                    <h2 class="mdl-card__title-text">
 
-                    </h2>
-                </div>
-                <div class="mdl-card__supporting-text">
 
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        LIKE
-                    </a>
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        LOVE
-                    </a>
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        HAPPY
-                    </a>
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        DISLIKE
-                    </a>
+        </div>
+
+        <div id="templates">
+            <div id="template-video">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videoId}}" frameborder="0" allowfullscreen></iframe>
+
+                        <h2 class="mdl-card__title-text">
+
+                        </h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            LIKE
+                        </a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            LOVE
+                        </a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            HAPPY
+                        </a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            DISLIKE
+                        </a>
+                    </div>
                 </div>
             </div>
-
-
         </div>
         
     </main>
@@ -155,5 +164,6 @@ limitations under the License.
 <script src="/js/mediaUploader.js"></script>
 <script src="/js/yt.js"></script>
 <script src="/js/app.js"></script>
+<script src="/js/feed.js"></script>
 </body>
 </html>
