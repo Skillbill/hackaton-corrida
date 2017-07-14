@@ -45,9 +45,14 @@ router.get('/list-new', function(req, res) {
 
 router.put('/vote', function(req, res) {
   const {videoId, like, love, happy, dislike} = req.body;
+  const oid = req.user.oid;
+
   const video = database.getVideo(videoId);
   if(!video) {
     return res.status(404).send('cannot find video');
+  }
+  if(database.getVote(videoId, oid)) {
+    return res.status(409).send(`vote already cast for ${videoId} ${oid}`);
   }
 
   video.like += like ? 1 : 0;
@@ -57,6 +62,15 @@ router.put('/vote', function(req, res) {
 
   if(database.updateVideo(video)) {
     res.status(200).send(video);
+    database.createVote({
+      videoId,
+      oid,
+      like,
+      love,
+      happy,
+      dislike,
+      voteDate: new Date()
+    })
   } else {
     res.status(404).send('cannot update video');
   }
