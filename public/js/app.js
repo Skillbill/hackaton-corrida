@@ -197,6 +197,12 @@ function initApp() {
     } else {
       document.querySelector("#feed").classList.add('hidden');
       document.querySelector("#hot").classList.add('hidden');
+
+      document.querySelectorAll('a.mdl-layout__tab').forEach(el => el.classList.remove('is-active'));
+      document.querySelector('a[href="#tab-new"]').classList.add('is-active');
+      document.querySelectorAll('.mdl-layout__tab-panel').forEach(el => el.classList.remove('is-active'));
+      document.querySelector('#tab-new').classList.add('is-active');
+
       document.querySelector('button.logout').classList.add('hidden');
       document.querySelector('#tabs').classList.add('hidden');
       document.querySelector('button.upload').classList.add('hidden');
