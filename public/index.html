@@ -130,6 +130,7 @@ limitations under the License.
         <div id="templates">
             <div id="template-video">
                 <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <span class="video-id hidden">{{videoId}}</span>
                     <div class="mdl-card__title mdl-card--expand">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videoId}}" frameborder="0" allowfullscreen></iframe>
 
@@ -141,16 +142,16 @@ limitations under the License.
 
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a onClick="feed.vote('{{videoId}}', 'like')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             {{like}} LIKE
                         </a>
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a onClick="feed.vote('{{videoId}}', 'love')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             {{love}} LOVE
                         </a>
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a onClick="feed.vote('{{videoId}}', 'happy')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             {{happy}} HAPPY
                         </a>
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a onClick="feed.vote('{{videoId}}', 'dislike')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             {{dislike}} DISLIKE
                         </a>
                     </div>
