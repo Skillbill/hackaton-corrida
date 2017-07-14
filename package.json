@@ -1,0 +1,22 @@
+{
+  "name": "hackaton-corrida",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skillbill/hackaton-corrida.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skillbill/hackaton-corrida/issues"
+  },
+  "homepage": "https://github.com/Skillbill/hackaton-corrida#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
