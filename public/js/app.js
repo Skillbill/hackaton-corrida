@@ -181,11 +181,11 @@ function initApp() {
         auth_token = a;
         console.log("token", a);
         document.querySelector("#login").classList.add('hidden');
+        document.querySelector('#tabs').classList.remove('hidden');
         document.querySelector("#feed").classList.remove('hidden');
         document.querySelector("#hot").classList.remove('hidden');
         document.querySelector("#uploadSection").classList.remove('hidden');
         document.querySelector('button.upload').classList.remove('hidden');
-        document.querySelector('#tabs').classList.remove('hidden');
         document.querySelector('button.logout').classList.remove('hidden');
 
         feed.listNew();
@@ -195,18 +195,20 @@ function initApp() {
       }
       // [END_EXCLUDE]
     } else {
+      document.querySelector("#login").classList.remove('hidden');
+
+      document.querySelector('#tabs').classList.add('hidden');
       document.querySelector("#feed").classList.add('hidden');
       document.querySelector("#hot").classList.add('hidden');
-
       document.querySelectorAll('a.mdl-layout__tab').forEach(el => el.classList.remove('is-active'));
       document.querySelector('a[href="#tab-new"]').classList.add('is-active');
       document.querySelectorAll('.mdl-layout__tab-panel').forEach(el => el.classList.remove('is-active'));
       document.querySelector('#tab-new').classList.add('is-active');
 
-      document.querySelector('button.logout').classList.add('hidden');
-      document.querySelector('#tabs').classList.add('hidden');
+      document.querySelector("#uploadSection").classList.add('hidden');
+      document.querySelector("#progress").classList.add('hidden');
       document.querySelector('button.upload').classList.add('hidden');
-      document.querySelector("#login").classList.remove('hidden');
+      document.querySelector('button.logout').classList.add('hidden');
       // User is signed out.
       // [START_EXCLUDE]
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
