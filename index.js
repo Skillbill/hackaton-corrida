@@ -1,9 +1,11 @@
 const express = require('express');
 const auth = require('./lib/auth');
+const bodyParser = require('body-parser');
 const app = express();
 
-
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 auth.init(`/api`, app);
 app.use('/api', require('./routers/root'));
