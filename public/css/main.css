@@ -31,10 +31,6 @@ button.logout {
   margin-top: 25px;
 }
 
-button.logout {
-  margin-left: 250%;
-}
-  
 header {
   background: url('/images/logo.png');
   background-repeat: no-repeat;

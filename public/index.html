@@ -58,14 +58,10 @@ limitations under the License.
               <button class="hidden  mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
                 + Add Video
               </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent logout">
-                 Logout
-            </button>
             </div>
-            
-            <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-grid">
 
-              <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--3-col-desktop mdl-grid">
+
                 <form class="uploadForm hidden">
                   <input type="file" name="video" required></input>
                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
@@ -78,11 +74,15 @@ limitations under the License.
                     Choose
                   </button>
                 </form>
-                
-              </div>
-              
+
             </div>
-            
+
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--2-col-desktop">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent logout">
+                    Logout
+                </button>
+            </div>
+
             <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
         </div>
         <!-- Tabs -->
