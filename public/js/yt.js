@@ -8,6 +8,8 @@ var SCOPES = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com
 
 var uploadButton = document.querySelector('button.upload');
 var uploadForm = document.querySelector('.uploadForm');
+var uploadFormId = document.querySelector('.uploadFormId');
+
 uploadButton.addEventListener('click', (e) => {
   e.preventDefault();
   uploadVideo();
@@ -19,6 +21,18 @@ uploadForm.addEventListener('submit', (e) => {
   uploadVideo.ready(gapi.client.getToken().access_token);
 
 })
+
+uploadFormId.addEventListener('submit', (e) => {
+  e.preventDefault();
+  var videoId = e.target.querySelector('input').value;
+  uploadVideoApi(videoId);
+})
+
+function uploadVideoApi(videoId) {
+  if(videoId) {
+    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId})});
+  }
+}
 
 function uploadVideo() {
 
@@ -41,6 +55,7 @@ function uploadVideo() {
   function updateSigninStatus(isLogged) {
     if(isLogged) {
       uploadForm.classList.remove("hidden");
+      uploadFormId.classList.remove("hidden");
     }
   }
   
