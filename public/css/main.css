@@ -40,3 +40,37 @@ header {
   background-size: 280px;
 
 }
+
+.mdl-card__actions {
+  justify-content: space-between;
+  display: flex;
+}
+
+.mdl-card__actions a {
+  width: 25%;
+  margin: 6px;
+}
+
+.mdl-card__actions a span {
+  background-size: 20%;
+  background-position: 10% center;
+  background-repeat: no-repeat;
+}
+
+a.icon-like span {
+  background-image: url('/images/like.png');
+}
+
+a.icon-love span {
+  background-image: url('/images/love.png');
+}
+
+a.icon-dislike span {
+  background-image: url('/images/dislike.png');
+  background-position: 6% center;
+}
+
+a.icon-happy span {
+  background-image: url('/images/happy.png');
+  background-position: 8% center;
+}

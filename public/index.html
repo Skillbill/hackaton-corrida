@@ -158,30 +158,30 @@ limitations under the License.
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                         {{#voted}}
-                            <a onClick="feed.vote('{{videoId}}', 'like')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'like')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-like">
                                 {{like}} LIKE
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'love')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'love')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-love">
                                 {{love}} LOVE
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'happy')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'happy')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-happy">
                                 {{happy}} HAPPY
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'dislike')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'dislike')" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-dislike">
                                 {{dislike}} DISLIKE
                             </a>
                         {{/voted}}
                         {{^voted}}
-                            <a onClick="feed.vote('{{videoId}}', 'like')"  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'like')"  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-like">
                                 {{like}} LIKE
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'love')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'love')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-love">
                                 {{love}} LOVE
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'happy')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'happy')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-happy">
                                 {{happy}} HAPPY
                             </a>
-                            <a onClick="feed.vote('{{videoId}}', 'dislike')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            <a onClick="feed.vote('{{videoId}}', 'dislike')" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect icon-dislike">
                                 {{dislike}} DISLIKE
                             </a>
                         {{/voted}}
