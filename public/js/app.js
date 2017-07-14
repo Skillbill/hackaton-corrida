@@ -237,6 +237,15 @@ function initApp() {
   });
 }
 
+document.querySelectorAll('.ranking-tabs a').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.ranking-tabs a').forEach((el) => {el.classList.remove('is-active')});
+    e.target.classList.add('is-active');
+    feed.listRanking(e.target.dataset.type);
+  });
+});
+
 window.onload = function() {
   initApp();
 };

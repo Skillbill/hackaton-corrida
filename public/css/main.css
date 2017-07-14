@@ -8,7 +8,7 @@
 
 .video-card {
   width: 600px;
-  height: 400px;
+  height: 460px;
   margin: 0 auto;
 }
 
@@ -24,10 +24,6 @@
 
 #progress {
   width: 100%;
-}
-
-.video-card {
-  height: 440px;
 }
 
 button.upload,
@@ -78,4 +74,8 @@ a.icon-dislike span {
 a.icon-happy span {
   background-image: url('/images/happy.png');
   background-position: 8% center;
+}
+
+.ranking-tabs {
+  height: 50px;
 }
