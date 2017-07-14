@@ -75,3 +75,7 @@ a.icon-happy span {
   background-image: url('/images/happy.png');
   background-position: 8% center;
 }
+
+.ranking-tabs {
+  height: 50px;
+}
