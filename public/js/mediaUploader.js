@@ -152,7 +152,8 @@ UploadVideo.prototype.pollForVideoStatus = function() {
             console.log("end", response);
             uploadVideoApi(response.items[0].id);
             progress.classList.add('hidden');
-            uploadForm.classList.add('hidden');
+            uploadForm.classList.add("hidden");
+            selectForm.classList.add("hidden");
 
             document.querySelectorAll('a.mdl-layout__tab').forEach(el => el.classList.remove('is-active'));
             document.querySelector('a[href="#tab-new"]').classList.add('is-active');
