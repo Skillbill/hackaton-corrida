@@ -8,7 +8,7 @@ const feed = {
   },
 
   listHot: ()  => {
-    return feed.list('list-hot');
+    return feed.list('list-hot', 'timeRange=120');
   },
   
   listHappy: ()  => {
@@ -27,9 +27,10 @@ const feed = {
     return feed.list('list-like');
   },
 
-  list: (type) => {
+  list: (type, params) => {
     user.getIdToken().then((auth_token) => {
-      fetch('/api/' + type, {
+      document.querySelector('.'+type).innerHTML = ''
+      fetch('/api/' + type + (params ? `?${params}` : ''), {
         method: 'GET',
         headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}
       })
@@ -43,7 +44,7 @@ const feed = {
             elem.setAttribute('id',video.videoId);
             elem.classList.add('video-card');
             elem.innerHTML = newVideo;
-            document.getElementById('feed').appendChild(elem);
+            document.querySelector('.'+type).appendChild(elem);
           });
 
         });
@@ -74,3 +75,11 @@ const feed = {
   }
 
 };
+
+document.querySelector('a[href="#tab-new"]').addEventListener('click', (e) => {
+  feed.listNew();
+});
+
+document.querySelector('a[href="#tab-hot"]').addEventListener('click', (e) => {
+  feed.listHot();
+});
