@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 auth.init(`/api`, app);
 app.use('/api', require('./routers/root'));
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+const port = process.env.PORT || 3000;
+
+app.listen(port, function () {
+  console.log(`corrida is listening on port ${port}!`);
 });
