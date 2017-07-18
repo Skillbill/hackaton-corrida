@@ -8,6 +8,7 @@ var SCOPES = 'https://www.googleapis.com/auth/youtube https://www.googleapis.com
 
 var uploadButton = document.querySelector('button.upload');
 var uploadForm = document.querySelector('.uploadForm');
+var selectForm = document.querySelector('.selectForm');
 var progress = document.querySelector('#progress');
 
 uploadButton.addEventListener('click', (e) => {
@@ -20,6 +21,16 @@ uploadForm.addEventListener('submit', (e) => {
   var uploadVideo = new UploadVideo();
   uploadVideo.ready(gapi.client.getToken().access_token);
   progress.classList.remove('hidden')
+})
+
+selectForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  user.getIdToken().then((auth_token) => {
+    var videoId = e.target.querySelector("select").value;
+    fetch('/api/upload', {method: 'POST', headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}, body: JSON.stringify({videoId})}).then(() => {
+      feed.listNew();
+    });
+  });  
 })
 
 function uploadVideoApi(videoId) {
@@ -51,9 +62,43 @@ function uploadVideo() {
   function updateSigninStatus(isLogged) {
     if(isLogged) {
       uploadForm.classList.remove("hidden");
+      selectForm.classList.remove("hidden");
+      getVideoListByChannel().then((list) => {
+        console.log("list", list);
+        var select = selectForm.querySelector('select');
+        list.items.forEach((video) => {
+          var option = document.createElement('option');
+          option.value = video.id.videoId;
+          option.innerHTML = video.snippet.title;
+          select.appendChild(option);
+        });
+      })
     }
   }
   
+}
+
+function getVideoListByChannel() {
+  return new Promise((resolve, reject) => {
+    gapi.client.request({
+      path: '/youtube/v3/channels',
+      params: {
+        part: 'snippet',
+        mine: true
+      },
+      callback: function(response) {
+        if(response.error) {
+          console.error(response.error.message);
+          reject(response);
+        } else {
+          console.log(response);
+          fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCu9NwE3N0rAc7j3oFvhfZfPLnYuHEX4Z0&channelId=${response.items[0].id}&part=snippet,id&order=date&maxResults=20`).then((res) => {
+            return res.json();
+          }).then(resolve)
+        }
+      }.bind(this)
+    });
+  });  
 }
 
 

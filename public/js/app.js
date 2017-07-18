@@ -184,7 +184,6 @@ function initApp() {
         document.querySelector('#tabs').classList.remove('hidden');
         document.querySelector("#feed").classList.remove('hidden');
         document.querySelector("#hot").classList.remove('hidden');
-        document.querySelector("#uploadSection").classList.remove('hidden');
         document.querySelector('button.upload').classList.remove('hidden');
         document.querySelector('button.logout').classList.remove('hidden');
 
@@ -205,7 +204,8 @@ function initApp() {
       document.querySelectorAll('.mdl-layout__tab-panel').forEach(el => el.classList.remove('is-active'));
       document.querySelector('#tab-new').classList.add('is-active');
 
-      document.querySelector("#uploadSection").classList.add('hidden');
+      uploadForm.classList.add("hidden");
+      selectForm.classList.add("hidden");
       document.querySelector("#progress").classList.add('hidden');
       document.querySelector('button.upload').classList.add('hidden');
       document.querySelector('button.logout').classList.add('hidden');
@@ -236,6 +236,15 @@ function initApp() {
     toggleSignIn();
   });
 }
+
+document.querySelectorAll('.ranking-tabs a').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.ranking-tabs a').forEach((el) => {el.classList.remove('is-active')});
+    e.target.classList.add('is-active');
+    feed.listRanking(e.target.dataset.type);
+  });
+});
 
 window.onload = function() {
   initApp();

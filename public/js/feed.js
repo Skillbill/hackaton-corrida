@@ -26,10 +26,17 @@ const feed = {
   listLike: ()  => {
     return feed.list('list-like');
   },
+  
+  listRanking: (type) => {
+    return feed.list('list-' + type, null, "#ranking-list");
+  },
 
-  list: (type, params) => {
+  list: (type, params, container) => {
     user.getIdToken().then((auth_token) => {
-      document.querySelector('.'+type).innerHTML = ''
+      container = document.querySelector(container || '.'+type);
+      document.querySelector('#feed').innerHTML = '';
+      document.querySelector('#hot').innerHTML = '';
+      document.querySelector('#ranking-list').innerHTML = '';
       fetch('/api/' + type + (params ? `?${params}` : ''), {
         method: 'GET',
         headers: {'Authorization': 'Bearer ' + auth_token, 'Content-Type': 'application/json'}
@@ -44,7 +51,7 @@ const feed = {
             elem.setAttribute('id',video.videoId);
             elem.classList.add('video-card');
             elem.innerHTML = newVideo;
-            document.querySelector('.'+type).appendChild(elem);
+            container.appendChild(elem);
           });
 
         });
@@ -82,4 +89,8 @@ document.querySelector('a[href="#tab-new"]').addEventListener('click', (e) => {
 
 document.querySelector('a[href="#tab-hot"]').addEventListener('click', (e) => {
   feed.listHot();
+});
+
+document.querySelector('a[href="#tab-ranking"]').addEventListener('click', (e) => {
+  document.querySelector('a[data-type="like"]').click();
 });

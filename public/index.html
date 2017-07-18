@@ -58,24 +58,31 @@ limitations under the License.
               <button class="hidden  mdl-button mdl-js-button mdl-button--raised mdl-button--accent upload">
                 + Add Video
               </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent logout">
-                + Logout
-            </button>
             </div>
-            
-            <div id="uploadSection" class="hidden mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--4-col-desktop mdl-grid">
 
-              <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div id="uploadSection" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--3-col-desktop mdl-grid">
+
                 <form class="uploadForm hidden">
                   <input type="file" name="video" required></input>
                   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                     Send
                   </button>
                 </form>
-              </div>
-              
+                <form class="selectForm hidden">
+                  <select></select>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                    Choose
+                  </button>
+                </form>
+
             </div>
-            
+
+            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--2-col-desktop">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent logout">
+                    Logout
+                </button>
+            </div>
+
             <div id="progress" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
         </div>
         <!-- Tabs -->
@@ -140,6 +147,17 @@ limitations under the License.
         </section>
         <section class="mdl-layout__tab-panel" id="tab-ranking">
             <div class="page-content">
+
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect ranking-tabs">
+        			<a href="#scroll-tab-1" class="mdl-layout__tab is-active" data-type="like">Like</a>
+        			<a href="#scroll-tab-2" class="mdl-layout__tab" data-type="love">Love</a>
+              <a href="#scroll-tab-3" class="mdl-layout__tab" data-type="happy">Happy</a>
+        			<a href="#scroll-tab-4" class="mdl-layout__tab" data-type="dislike">Dislike</a>
+      		  </div>
+            
+            <div id="ranking-list" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+
+            </div>
 
             </div>
         </section>
